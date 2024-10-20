@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encuesta</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+</head>
+
+<body>
+    <h1>Datos Recibidos</h1>
+    <p>Los datos recibidos son: </p>
+    {% if nombre and apellidos %}
+    <p>Nombre: {{nombre}}</p>
+    <p>Apellidos: {{apellidos}}</p>
+        {% if curso %}
+        <p>El curso que eligio es: {{curso}}</p>
+        {% else %}
+        <p>Correo Electronico: {{correo}}</p>
+        <p>Contraseña: {{contrasena}}</p>
+        {% endif %}
+    {% else %}
+        {% if categoria %}
+            <p>Producto: {{producto}}</p>
+            <p>Categoria: {{categoria}}</p>
+            <p>Existencia (Cantidad): {{existencia}}</p>
+            <p>Precio: {{precio}}</p>
+        {% else %}
+            <p>Titulo: {{titulo}}</p>
+            <p>Autor: {{autor}}</p>
+            <p>Resumen: {{resumen}}</p>
+            <p>Medio: {{medio}}</p>
+        {% endif %}
+    {% endif %}
+    
+    <p><a href="{{url_for('index')}}">Volver</a></p>
+            
+</body>
+
+</html>
